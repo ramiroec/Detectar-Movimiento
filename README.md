@@ -1,54 +1,67 @@
-# React + TypeScript + Vite
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+# MotionDetector
 
-Currently, two official plugins are available:
+Un componente de React para detectar movimiento en tiempo real usando la cámara web del navegador. Muestra una alerta visual cuando se detecta un cambio significativo entre frames consecutivos.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## 🎥 Características
 
-## Expanding the ESLint configuration
+- Detección de movimiento basada en diferencias de píxeles.
+- Sensibilidad ajustable.
+- Alerta visual en pantalla cuando se detecta movimiento.
+- Uso de `react-webcam` y `canvas` HTML5 para procesamiento de imágenes.
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+## 🚀 Instalación
 
-```js
-export default tseslint.config({
-  extends: [
-    // Remove ...tseslint.configs.recommended and replace with this
-    ...tseslint.configs.recommendedTypeChecked,
-    // Alternatively, use this for stricter rules
-    ...tseslint.configs.strictTypeChecked,
-    // Optionally, add this for stylistic rules
-    ...tseslint.configs.stylisticTypeChecked,
-  ],
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
+1. Asegúrate de tener un proyecto de React con TypeScript.
+2. Instala las dependencias necesarias:
+
+```bash
+npm install react-webcam
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+3. Copia el archivo `MotionDetector.tsx` en tu proyecto (por ejemplo, dentro de `src/components/`).
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+## 🧠 Uso
 
-export default tseslint.config({
-  plugins: {
-    // Add the react-x and react-dom plugins
-    'react-x': reactX,
-    'react-dom': reactDom,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended typescript rules
-    ...reactX.configs['recommended-typescript'].rules,
-    ...reactDom.configs.recommended.rules,
-  },
-})
+Importa y utiliza el componente en tu aplicación:
+
+```tsx
+import React from 'react';
+import MotionDetector from './components/MotionDetector';
+
+function App() {
+  return (
+    <div>
+      <MotionDetector />
+    </div>
+  );
+}
+
+export default App;
 ```
+
+## ⚙️ Props
+
+Actualmente el componente no recibe props, pero puedes extenderlo fácilmente para:
+- Ejecutar una función cuando se detecte movimiento.
+- Configurar la sensibilidad por defecto.
+- Cambiar estilos de la alerta.
+
+## 📷 Permisos
+
+Este componente requiere acceso a la cámara del usuario. Asegúrate de que tu navegador tenga permiso para usarla.
+
+## 🛠 Tecnologías
+
+- React
+- TypeScript
+- HTML Canvas
+- `react-webcam`
+
+## 📄 Licencia
+
+Este proyecto está bajo la licencia MIT.
+
+---
+
+¡Contribuciones, mejoras y forks son bienvenidos! 🚀
